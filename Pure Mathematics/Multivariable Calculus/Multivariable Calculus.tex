@@ -1,0 +1,297 @@
+\documentclass{article}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\input{preamble}
+
+\title{Multivariable Calculus}
+\author{Aadvik Mohta}
+\date{aadimohta00@gmail.com}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\section{Functions of Two Variables}
+\begin{definition}
+    A \textbf{function of two variables} is a rule that assigns to each ordered pair of real numbers $(x,y)$ in a set $D$ a unique real number denoted by $f(x,y)$. The set $D$ is the domain of $f$ and its range is the set of values that $f$ takes on, that is, $\{f(x,y)|(x,y)\in D\}.$
+\end{definition}
+\begin{definition}
+    If $f$ is a function of two variables with domain $D$, then the graph of $f$ is the set of all points $(x,y,z)$ in $\mathbb{R}^3$ such that $z=f(x,y)$ and $(x,y)\in D.$
+\end{definition}
+\begin{definition}
+    The level curves of a function $f$ of two variables are the curves with equations $f(x,y)=k$, where $k\in R_f$ is a constant.
+\end{definition}
+\begin{remark}
+    A level curve $f(x,y)=k$ is the set of all points in the domain of $f$ at which $f$ takes on a given value $k$. Loosely speaking, it shows where the graph has height $k$.
+\end{remark}
+\begin{remark}
+    The level curves $f(x,y)=k$ are just the traces of the graph of $f$ in the horizontal plane $z=k$ projected down to the $xy$-plane.
+\end{remark}
+\newpage
+\section{Partial Derivatives}
+\begin{definition}
+    If $f$ is a function of two variables $x$ and $y$, its partial derivatives are the functions $f_x$ and $f_y$ defined by
+    $$f_x(x,y)=\lim_{h\to0}\frac{f(x+h,y)-f(x,y)}{h},$$
+    $$f_y(x,y)=\lim_{h\to0}\frac{f(x,y+h)-f(x,y)}{h}.$$
+\end{definition}
+\begin{explanation}
+    Suppose $f$ is a function of two variables $x$ and $y$. If we let only $x$ vary while keeping $y$ fixed, such as $y=b$ where $b$ is a constant, then we are effectively considering a function of a single variable in $g(x)=f(x,b)$. If $g$ has a derivative at $x=a$, then we call this derivative the partial derivative of $f$ with respect to $x$ at $(a,b)$, denoted by $f_x(a,b)$. Thus $f_x(a,b)=g'(a)$ where $g(x)=f(x,b)$. By the definition of the derivative, we have
+    $$g'(a)=\lim_{h\to 0}\frac{g(a+h)-g(a)}{h}.$$
+    Allowing us to conclude that
+    $$f_x(a,b)=\lim_{h\to 0}\frac{f(a+h,b)-f(a,b)}{h}.$$
+    A similar argument ensues for the definition of $f_y(x,y).$
+\end{explanation}
+\begin{notation}
+    If $z=f(x,y),$ we may also write 
+    $$f_x(x,y)=f_x=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y)=\frac{\partial z}{\partial x}$$
+     $$f_y(x,y)=f_y=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y)=\frac{\partial z}{\partial y}.$$
+\end{notation}
+\subsection{Interpretation of Partial Derivatives}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-07-18 170051.png}
+    \caption{Geometric Interpretation of Partial Derivatives}
+\end{figure}
+
+The equation $z=f(x,y)$ represents a surface $S$. If $f(a,b)=c$, then the point $P(a,b,c)$ lies on $S$. By fixing $y=b$, we are restricted to the curve $C_1$ in which the vertical plane $y=b$ intersects $S$. Likewise, the vertical plane $x=a$ intersects $S$ in a curve $C_2.$ Both the curves $C_1$ and $C_2$ pass through the point $P$. The curve $C_1$ is the graph of the function $g(x)=f(x,b)$, so the gradient of its tangent $T_1$ at $P$ is thus $g'(a)=f_x(a,b).$ Also, the curve $C_2$ is the graph of the function $G(y)=f(a,y)$, so the gradient of its tangent $T_2$ at $P$ is given by $G'(y)=f_y(a,b).$ Therefore, the partial derivatives $f_x(a,b)$ and $f_y(a,b)$ can be interpreted geometrically as the gradients of the tangent lines at $P(a,b,c)$ to the traces $C_1$ and $C_2$ of $S$ in the planes $y=b$ and $x=a$ respectively.
+
+Alternatively, partial derivatives may also be interpreted as rates of change. If $z=f(x,y)$, then $\frac{\partial z}{\partial x}$ denotes the rate of change of $z$ with respect to $x$ when $y$ is fixed. A similar definition follows for $\frac{\partial z}{\partial y}.$
+\subsection{Higher Derivatives}
+\begin{notation}
+    If $f$ is a function of two variables, then its partial derivatives are also functions of two variables. We write:
+    $$(f_x)_x=f_{xx}=\frac{\partial}{\partial x}\Bigg(\frac{\partial f}{\partial x}\Bigg)=\frac{\partial ^2f}{\partial x^2}=\frac{\partial ^2z}{\partial x^2}$$
+    $$(f_x)_y=f_{xy}=\frac{\partial}{\partial y}\Bigg(\frac{\partial f}{\partial x}\Bigg)=\frac{\partial ^2f}{\partial y\partial x}=\frac{\partial ^2z}{\partial y\partial x}$$
+    $$(f_y)_x=f_{yx}=\frac{\partial}{\partial x}\Bigg(\frac{\partial f}{\partial y}\Bigg)=\frac{\partial ^2f}{\partial x\partial y}=\frac{\partial ^2z}{\partial x\partial y}$$
+    $$(f_y)_x=f_{yy}=\frac{\partial}{\partial y}\Bigg(\frac{\partial f}{\partial y}\Bigg)=\frac{\partial ^2f}{\partial y^2}=\frac{\partial ^2z}{\partial y^2}.$$
+\end{notation}
+\begin{theorem}[Clairaut's Theorem]
+    Suppose $f$ is defined on a disk $D$ that contains the point $(a,b)$. If the functions $f_{xy}$ and $f_{yx}$ are both continuous on $D$, then 
+    $$f_{xy}(a,b)=f_{yx}(a,b).$$
+\end{theorem}
+\section{The Chain Rule}
+\begin{theorem}[Chain Rule Case 1]
+    Suppose that $z=f(x,y)$ is a differentiable function of two variables $x$ and $y$, where $x=g(t)$ and $y=h(t)$ are both differentiable functions of $t$. Then $z$ is a differentiable function of $t$ and 
+    $$\frac{dz}{dt}=\frac{\partial z}{\partial x}\frac{dx}{dt}+\frac{\partial z}{\partial y}\frac{dy}{dt}.$$
+\end{theorem}
+\begin{theorem}[Chain Rule Case 2]
+    Suppose that $z=f(x,y)$ is a differentiable function of two variables $x$ and $y$, where $x=g(s,t)$ and $y=h(s,t)$ are differentiable functions of $s$ and $t$. Then
+    $$\frac{\partial z}{\partial s}=\frac{\partial z}{\partial x}\frac{\partial x}{\partial s}+\frac{\partial z}{\partial y}\frac{\partial y}{\partial s}$$
+    $$\frac{\partial z}{\partial t}=\frac{\partial z}{\partial x}\frac{\partial x}{\partial t}+\frac{\partial z}{\partial y}\frac{\partial y}{\partial t}.$$
+\end{theorem}
+The first case of the the chain rule can be used to derive an important result in the study of implicit functions, known as the Implicit Function Theorem.
+\begin{theorem}[Implicit Function Theorem]
+    Suppose that an equation of the form $F(x,y)=0$ defines $y$ implicitly as a differentiable function of $x$. If $F$ is differentiable, then 
+    $$\frac{dy}{dx}=-\frac{F_x}{F_y}.$$
+\end{theorem}
+\begin{replacementproof}
+    Suppose $F(x,y)$ is differentiable and the equation $F(x,y)=0$ defines $y$ implicitly as a differentiable function of $x$. Let $z=F(x,y)=0.$ Using the Chain Rule, we have
+    $$F_x\frac{dx}{dx}+F_y\frac{dy}{dx}=\frac{dz}{dx}=0.$$
+    $$F_x+F_y\frac{dy}{dx}=0\hspace{0.5cm}$$
+    $$\therefore \frac{dy}{dx}=-\frac{F_x}{F_y}.$$
+\end{replacementproof}
+\section{Directional Derivatives and the Gradient Vector}
+\begin{definition}
+    If $f$ is a differentiable function of $x$ and $y$, then $f$ has a directional derivative in the direction of any unit vector $\bm{u}=\begin{pmatrix}
+        a\\
+        b
+    \end{pmatrix}$
+    and the directional derivative is defined to be
+    $$D_{\bm{u}}f(x,y)=\nabla f\cdot\bm{u}.$$
+\end{definition}
+If the unit vector $\bm{u}$ makes an angle $\theta$ with the positive $x$-axis, then $\bm{u}=\begin{pmatrix}
+    \cos{\theta}\\
+    \sin{\theta}
+\end{pmatrix}$ and hence
+$$D_{\bm{u}}f(x,y)=\nabla f\cdot\begin{pmatrix}
+    \cos{\theta}\\
+    \sin{\theta}
+\end{pmatrix}.$$
+The directional derivative gives the rate of change of $f$ in any direction $\bm{u}$, not just the directions $\bm{\hat i}$ and $\bm{\hat j}$ for $f_x$ and $f_y$ respectively. The directional derivative thus generalises the notion of a partial derivative.
+\begin{note}
+    $\bm{u}$ should not have a magnitude lest we scale our rate of change by another quantity.
+\end{note}
+\begin{definition}
+    If $f$ is a function of two variables $x$ and $y$, then the gradient of $f$ is the vector function given by 
+    $$\nabla f(x,y)=\begin{pmatrix}
+        f_x(x,y)\\
+        f_y(x,y)
+    \end{pmatrix}=\frac{\partial f}{\partial x}\bm{\hat i}+\frac{\partial f}{\partial y}\bm{\hat j}.$$
+\end{definition}
+\begin{theorem}
+    Suppose $f$ is a differentiable function of two variables. The maximum value of the directional derivative $D_{\bm{u}}f(\textbf{x})$ is $|\nabla f(\textbf{x})|$ and it occurs when $\bm{u}$ has the same direction as $\nabla f(\textbf{x}).$
+\end{theorem}
+\begin{replacementproof}
+    Note that 
+    $$D_{\bm{u}}f=\nabla f\cdot\bm{u}=|\nabla f||\bm{u}|\cos{\theta}$$
+    where $\theta$ is the angle between $\nabla f$ and $\bm{u}$. The maximum value of $\cos{\theta}$ is $1$, which occurs when $\theta=0.$ Therefore, the maximum value of $D_{\bm{u}}f$ is $|\nabla f|$ and it occurs when $\theta=0$ i.e.\ $\bm{u}$ has the same direction as $\nabla f$.
+\end{replacementproof}
+\begin{note}
+    The function $f$ decreases most rapidly in the direction of $-\nabla f$. The directional derivative in this derivative is $D_{\bm{u}}f=|\nabla f|\cos{\pi}=-|\nabla f|.$
+\end{note}
+\begin{note}
+    Any direction $\bm{u}$ orthogonal to a gradient $\nabla f\neq \bm{0}$ is a direction of zero change in $f$ because then $\theta=0.5\pi$ and 
+    $$D_{\bm{u}}f=|\nabla f|\cos{\theta}=0.$$
+\end{note}
+\section{Tangent Planes and Normal Lines}
+\subsection{Tangent Plane to a Level Surface of The Form $F(x,y,z)=k$.}
+Suppose $S$ is a surface with equation $F(x,y,z)=k$, so it is a level surface of a function $F$ of 3 variables. Let $P(x_0,y_0,z_0)$ be a point on $S$. Then let $C$ be any curve that lies on the surface and passes through the point $P$. The curve $C$ can be described by the continuous vector function $\bm{r}(t)=\Big<x(t),y(t),z(t)\Big>$. Let $t_0$ be the parameter value corresponding to $P$. Therefore $\bm{r}(t_0)=\Big<x(t_0),y(t_0),z(t_0)\Big>$. Since $C$ lies on $S$, any point $(x(t),y(t),z(t))$ must satisfy the equation of $S$. Therefore,
+$$F(x(t),y(t),z(t))=k.$$
+Differentiating with respect to $t$,
+$$\frac{\partial F}{\partial x}\frac{dx}{dt}+\frac{\partial F}{\partial y}\frac{dy}{dt}+\frac{\partial F}{\partial z}\frac{dz}{dt}=0$$
+$$\implies \nabla F\cdot\bm{r}'(t)=0.$$
+when $t=t_0$, $\bm{r}(t_0)=\Big<x_0,y_0,z_0\Big>$ and thus
+$$\nabla F(x_0,y_0,z_0)\cdot \bm{r}'(t_0)=0.$$
+This allows us to define the tangent vector to the level surface precisely, assuming that 
+\begin{definition}
+     Suppose $\nabla F(x_0,y_0,z_0)\neq\bm{0}.$The tangent plane to the level surface $F(x,y,z)=k$ at $P(x_0,y_0,z_0)$ is the plane that passes through $P$ and has normal vector $\nabla F(x_0,y_0,z_0)$.
+\end{definition}
+The equation of the tangent plane to the level surface is thus 
+$$\bm{r}\cdot\bm{n}=\bm{a}\cdot\bm{n}$$
+$$\begin{pmatrix}
+    x\\
+    y\\
+    z\\
+\end{pmatrix}\cdot\begin{pmatrix}
+    F_x(x_0,y_0,z_0)\\
+    F_y(x_0,y_0,z_0)\\
+    F_z(x_0,y_0,z_0)
+\end{pmatrix}=\begin{pmatrix}
+    x_0\\
+    y_0\\
+    z_0
+\end{pmatrix}\cdot\begin{pmatrix}
+     F_x(x_0,y_0,z_0)\\
+    F_y(x_0,y_0,z_0)\\
+    F_z(x_0,y_0,z_0)
+\end{pmatrix}$$
+$$\implies(x-x_0)F_x(x_0,y_0,z_0)+(y-y_0)F_y(x_0,y_0,z_0)+(z-z_0)F_z(x_0,y_0,z_0)=0.$$
+\subsection{Normal Line to a Level Surface of The Form $F(x,y,z)=k.$}
+\begin{definition}
+    The normal line to the level surface $F(x,y,z)=k$ at the point $P(x_0,y_0,z_0)$ is the line that passes through $P$ and is parallel to the gradient vector $\nabla F(x_0,y_0,z_0).$
+\end{definition}
+The equation of the normal line to the level surface is thus
+$$\bm{r}=\bm{a}+\lambda\bm{b},\hspace{0.4cm}\lambda\in \mathbb{R}$$
+$$\begin{pmatrix}
+    x\\
+    y\\
+    z
+\end{pmatrix}=\begin{pmatrix}
+    x_0\\
+    y_0\\
+    z_0
+\end{pmatrix}+\lambda\begin{pmatrix}
+    F_x(x_0,y_0,z_0)\\
+    F_y(x_0,y_0,z_0)\\
+    F_z(x_0,y_0,z_0)
+\end{pmatrix}$$
+$$x-x_0=\lambda F_x(x_0,y_0,z_0)$$
+$$y-y_0=\lambda F_y(x_0,y_0,z_0)$$
+$$z-z_0=\lambda F_z(x_0,y_0,z_0)$$
+$$\implies\frac{x-x_0}{F_x(x_0,y_0,z_0)}=\frac{y-y_0}{F_y(x_0,y_0,z_0)}=\frac{z-z_0}{F_z(x_0,y_0,z_0)}.$$
+\subsection{Tangent Plane and Normal Lineto a Surface $z=f(x,y)$.}
+Consider the case where $z=f(x,y).$ Then $F(x,y,z)=f(x,y)-z=0.$ Therefore
+$$F_x(x_0,y_0,z_0)=f_x(x_0,y_0)$$
+$$F_y(x_0,y_0,z_0)=f_y(x_0,y_0)$$
+$$F_z(x_0,y_0,z_0)=-1$$
+The equation of the tangent plane thus becomes
+$$(x-x_0)f_x(x_0,y_0)+(y-y_0)f_y(x_0,y_0)=z-z_0$$
+The equation of the normal line also becomes
+$$\frac{x-x_0}{f_x(x_0,y_0)}=\frac{y-y_0}{f_y(x_0,y_0)}=z_0-z.$$
+\subsection{Tangent Line to a Level Curve}
+Consider the level curve $f(x,y)=k$. Then $F(x,y)=f(x,y)-k=0.$ By the Implicit Function Theorem, we have
+$$\frac{dy}{dx}=-\frac{F_x}{F_y}=-\frac{f_x(x,y)}{f_y(x,y)}.$$
+At the point $(x_0,y_0),$ the equation of the tangent line to the level curve is given by 
+$$y-y_0=m(x-x_0)$$
+$$y-y_0=-\frac{f_x(x_0,y_0)}{f_y(x_0,y_0)}(x-x_0)$$
+$$(y-y_0)f_y(x_0,y_0)=-(x-x_0)f_x(x_0,y_0)$$
+$$\therefore(y-y_0)f_y(x_0,y_0)+(x-x_0)f_x(x_0,y_0)=0.$$
+\section{Maximum and Minimum Values}
+\begin{definition}
+    A function of two variables has a local maximum at $(a,b)$ if $f(x,y)\leq f(a,b)$ when $(x,y)$ is near $(a,b)$. The number $f(a,b)$ is called a local maximum value. If $f(x,y)\geq f(a,b)$ when $(x,y)$ is near $(a,b),$ then $f$ has a local minimum at $(a,b)$ and $f(a,b)$ is called a local minimum value.
+\end{definition}
+\begin{definition}
+    If $f(x,y)\leq f(a,b)$ for all points $(x,y)\in D_f$, then $f$ has an absolute maximum at $(a,b).$  If $f(x,y)\geq f(a,b)$ for all points $(x,y)\in D_f$, then $f$ has an absolute minimum at $(a,b).$
+\end{definition}
+\begin{theorem}
+    If $f$ has an local maximum or minimum at $(a,b)$ and the first-order partial derivatives of $f$ exist there, then $\nabla f(a,b)=\bm{0}.$
+\end{theorem}
+\begin{replacementproof}
+    Let $g(x)=f(x,b).$ If $f$ has a local maximum or minimum at $(a,b)$, then $g$ has a local maximum or minimum at $x=a$, so $g'(a)=0$ by the Interior Extremum Theorem. But $g'(a)=f_x(a,b)$ and hence $f_x(a,b)=0.$ Similarly, let $G(y)=f(a,y).$ If $f$ has a local maximum or minimum at $(a,b)$, then $G$ has a local maximum or minimum at $y=b$, so $G'(b)=0$ by the Interior Extremum Theorem. But $G'(b)=f_y(a,b)$ and hence $f_y(a,b)=0.$ This allows us to conclude that $\nabla f(a,b)=\begin{pmatrix}
+        f_x(a,b)\\
+        f_y(a,b)
+    \end{pmatrix}=\bm{0}.$
+\end{replacementproof}
+Theorem 6.3 can be interpreted in a geometrical sense too. Consider the equation of the tangent plane to $z=f(x,y)$ at the point $(a,b)$, that is,
+$$z=z_0+f_x(a,b)(x-a)+f_y(a,b)(y-b).$$
+Substituting $f_x(a,b)=0$ and $f_y(a,b)=0$, we get $z=z_0.$ This means that if the graph of $f$ has a tangent plane at a local maximum or minimum, then that tangent plane must be horizontal.
+\begin{definition}[Critical Point]
+    A point $(a,b)$ is called a critical point if $f_x(a,b)=0$ and $f_y(a,b)=0$, or if one of these partial derivatives does not exist. If $f$ has a local maximum or minimum at $(a,b)$, then $(a,b)$ is a critical point of $f$. At a critical point, a function could have a local maximum, a local minimum, or neither.
+\end{definition}
+\subsection{The Second Partial Derivative Test}
+Suppose the second partial derivatives of $f$ are continuous on a disk with centre $(a,b)$, and suppose that $\nabla f(a,b)=\bm{0}.$ We define the discriminant of $f$ at the point $(a,b)$ to be the determinant of the Hessian at $(a,b)$ i.e.
+$$D(a,b)=\det\begin{pmatrix}
+    f_{xx}(a,b)&f_{xy}(a,b)\\
+    f_{yx}(a,b)&f_{yy}(a,b)
+\end{pmatrix}=f_{xx}(a,b)f_{yy}(a,b)-[f_{xy}(a,b)]^2.$$
+\begin{itemize}
+    \item If $D>0$ and $f_{xx}(a,b)>0$, then $f(a,b)$ is a local maximum.
+    \item If $D>0$ and $f_{xx}(a,b)<0$, then $f(a,b)$ is a local minimum.
+    \item If $D<0$, then $f(a,b)$ is a saddle point i.e\ it is neither a local maximum nor a local minimum.
+    \item If $D=0$, then the Second Partial Derivative Test is inconclusive.
+\end{itemize}
+\subsection{Absolute Maximum and Minimum Values}
+\begin{definition}[Closed Set and Bounded Set]
+    A closed set in $\mathbb{R}^2$ is one that contains all its boundary points. A boundary point of $D$ is a point $(a,b)$ such that every disk with centre $(a,b)$ contains points in $D$ and also points not in $D$. A bounded set in $\mathbb{R}^2$ is one that is contained within some disk and is finite in extent.
+\end{definition}
+\begin{theorem}[Extreme Value Theorem]
+    If $f$ is continuous on a closed, bounded set $D$ in $\mathbb{R}^2$, then $f$ attains an absolute maximum value $f(x_1,y_1)$ and an absolute minimum value $f(x_2,y_2)$ at some points $(x_1,y_1)$ and $(x_2,y_2)$ in $D$.
+\end{theorem}
+Therefore, we can come up with a "brute force" approach to finding maxima and minima.
+\begin{enumerate}
+    \item Find values of $f$ at critical point of $f$ in $D$.
+    \item Find extreme values on the boundary,
+    \item The largest of these values found is the absolute maximum, while the smallest is the absolute minimum.
+\end{enumerate}
+\section{Lagrange Multipliers}
+\begin{theorem}[Method of Lagrange Multipliers]
+    To find the extreme values of $f(x,y,z)$ subject to the constraint $g(x,y,z)=k$, assuming such extreme values exist, and that $\nabla g\neq \bm{0}$ on the surface $g(x,y,z)=k$, first find all $x,y,z,\lambda$ such that $\nabla f(x,y,z)=\lambda\nabla g(x,y,z)$, before evaluating $f$ at all points $(x,y,z)$ found earlier. The largest of these values is the maximum value of $f$ and the smallest is the minimum value of $f$.
+\end{theorem}
+\begin{replacementproof}
+    Suppose a function $f(x,y,z)$ has an extreme value at the point $P(x_0,y_0,z_0)$ on the surface $S$ and let $C$ be a curve with vector equation $\bm{r}(t)=\Big<x(t),y(t),z(t)\Big>$ that lies on $S$ and passes through $P$. If $t_0$ is the parameter value corresponding to the point $P$, then $\bm{r}(t_0)=\Big<x_0,y_0,z_0\Big>$. The function $h(t)=f(x(t),y(t),z(t))$ represents the values $f$ takes on the curve $C$. Since $f$ has an extreme value at $P(x_0,y_0,z_0)$, $h'(t_0)=0.$
+    $$\implies0=h'(t_0)=x'(t_0)f_x(x_0,y_0,z_0)+y'(t_0)f_y(x_0,y_0,z_0)+z'(t_0)f_z(x_0,y_0,z_0)$$
+    $$\implies\nabla f(x_0,y_0,z_0)\cdot\bm{r}'(t_0)=0$$
+    Hence $\nabla f(x_0,y_0,z_0)$ is orthogonal to $\bm{r}'(t_0)$. But it is also known that $\nabla g(x_0,y_0,z_0)$ is also orthogonal to $\bm{r}'(t_0)$ for every such curve. Hence $\nabla f(x_0,y_0,z_0)$ and $\nabla g(x_0,y_0,z_0)$ are parallel. Therefore, if $\nabla g(x_0,y_0,z_0)\neq \bm{0}$, then there exists some real $\lambda$ such that
+    $$\nabla f(x_0,y_0,z_0)=\lambda\nabla g(x_0,y_0,z_0).$$
+\end{replacementproof}
+
+In the case where $f$ and $g$ are functions of two variables, the two equations to solve by the method of Lagrange Multipliers are
+$$\nabla f(x,y)=\lambda\nabla g(x,y)$$
+$$g(x,y)=k.$$
+
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-07-19 185233.png}
+    \caption{Geometric Intuition for Lagrange Multipliers in the Case of 2 Variables}
+ \end{figure}
+\begin{intuition}
+    We seek to find the extreme values of $f(x,y)$ when the point $(x,y)$ is restricted to lie on the curve $g(x,y)=k$. To maximise $f(x,y)$ subject to $g(x,y)=k$ is to find the largest value of $c$ such that the level curve $f(x,y)=c$ intersects $g(x,y)=k.$ From the diagram, it appears that this happens when the curves have a common tangent line(otherwise the value of $c$ would be increased further). This means the normal lines at the point $(x_0,y_0)$, where the curves touch, are identical i.e.\ for some scalar $\lambda$, 
+    $$\nabla f(x_0,y_0)=\lambda \nabla g(x_0,y_0).$$
+\end{intuition}
+\section{Approximations for Functions of 2 Variables}
+\subsection{Linear Approximations}
+The equation of a tangent plane to a function $f$ of two variables at the point $(a,b)$ is given by
+$$z=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b).$$
+The linear function $L$ whose graph is this tangent plane
+$$L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$$
+is the $\textbf{linearisation}$ of $f$ at $(a,b)$ and the approximation 
+$$f(x,y)\approx f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$$
+is the linear approximation of $f$ at $(a,b)$.
+\subsection{Quadratic Approximations}
+\begin{theorem}[Taylor Series in Two Variables]
+    If $f(x,y)$ is an analytic function of two variables, then 
+    $$f(x,y)=\sum^\infty_{n,m=0}\Bigg[\frac{1}{n!m!}\frac{\partial^{m+n}f}{\partial x^n\partial y^n}(a,b)\Bigg](x-a)^n(y-b)^m.$$
+\end{theorem}
+Expanding up to the second terms, we get the quadratic approximation to a function $f(x,y)$ at a point $(a,b)$, which is given by
+$$Q(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)+0.5f_{xx}(a,b)(x-a)^2+f_{xy}(a,b)(x-a)(y-b)+0.5f_{yy}(y-b)^2.$$
+
+
+\end{document}
